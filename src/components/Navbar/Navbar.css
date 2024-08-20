@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Tint&display=swap');
+
+.navbar {
+  background: linear-gradient(135deg, #FF6347, #FFD700); /* Gradient background */
+  color: #fff; 
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-logo-img {
+  width: 40px; 
+  height: auto;
+}
+
+.navbar-logo-text {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  margin-right: 0.5rem; /* Space between logo and text */
+}
+
+.navbar-logo-text .highlight {
+  color: #FFD700; /* Gold */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Shadow to highlight */
+}
+
+.nav-link {
+  font-family: 'Bungee Tint', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #fff;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  padding: 0.5rem 1rem; /* clickable area */
+  border-radius: 5px; 
+}
+
+.nav-link:hover {
+  color: #FF6347; 
+  background-color: #FFD700; 
+}
+
+.cart-link {
+  background-color: #FFD700;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  color: #FF6347;
+  font-weight: bold;
+}
+
+.cart-link:hover {
+  background-color: #FF6347;
+  color: #FFD700;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Space between icons and sign-in button */
+}
+
+.navbar-right img {
+  margin-right: 1rem; /* Space between icons */
+}
+
+.navbar-right button {
+  margin-left: 1rem; /* Space between sign-in button and icons */
+}
+
+@media (max-width: 768px) {
+  .navbar-toggler {
+    border: none;
+    background: transparent;
+    color: #fff;
+  }
+
+  .navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu" viewBox="0 0 24 24"%3E%3Cpath d="M3 12h18M3 6h18M3 18h18"/%3E%3C/svg%3E');
+  }
+
+  .navbar-collapse {
+    margin-top: 1rem;
+  }
+}
