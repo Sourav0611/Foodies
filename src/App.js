@@ -15,19 +15,12 @@ const App = () => {
         {/* <LoadingBar color="#f11946" progress={progress} /> */}
         <Routes>
           <Route
-            exact
-            path="/"
-            element={<Home/>}
+            exact path="/" element={<Home/>}
+          />
+          <Route exact path="/cart" element={<Cart/>}
           />
           <Route
-            exact
-            path="/"
-            element={<Cart/>}
-          />
-          <Route
-            exact
-            path="/"
-            element={<PlaceOrder/>}
+            exact path="/order" element={<PlaceOrder/>}
           />
         </Routes>
       </Router>
