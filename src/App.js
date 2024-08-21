@@ -1,127 +1,35 @@
 import React, { useState } from 'react'
 import Navbar from './components/Navbar/Navbar'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Home } from './pages/Home/Home'
+import { Cart } from './pages/Cart/Cart'
+import { PlaceOrder } from './pages/placeOrder/PlaceOrder';
+
 
 const App = () => {
   return (
     <div className='app'>
       <Router>
         <Navbar/>
-        {/* <LoadingBar color="#f11946" progress={progress} />
+        {/* <LoadingBar color="#f11946" progress={progress} /> */}
         <Routes>
           <Route
             exact
             path="/"
-            element={
-              <News
-                updateProgress={updateProgress}
-                key="general"
-                pageSize={6}
-                apiKey={apiKey}
-                country="in"
-                category="general"
-              />
-            }
+            element={<Home/>}
           />
           <Route
             exact
-            path="/newse"
-            element={
-              <News
-                updateProgress={updateProgress}
-                key="general"
-                pageSize={6}
-                apiKey={apiKey}
-                country="in"
-                category="general"
-              />
-            }
+            path="/"
+            element={<Cart/>}
           />
           <Route
             exact
-            path="/business"
-            element={
-              <News
-                updateProgress={updateProgress}
-                key="business"
-                pageSize={6}
-                apiKey={apiKey}
-                country="in"
-                category="business"
-              />
-            }
+            path="/"
+            element={<PlaceOrder/>}
           />
-          <Route
-            exact
-            path="/entertainment"
-            element={
-              <News
-                updateProgress={updateProgress}
-                key="entertainment"
-                pageSize={6}
-                apiKey={apiKey}
-                country="in"
-                category="entertainment"
-              />
-            }
-          />
-          <Route
-            exact
-            path="/general"
-            element={
-              <News
-                updateProgress={updateProgress}
-                key="general"
-                pageSize={6}
-                apiKey={apiKey}
-                country="in"
-                category="general"
-              />
-            }
-          />
-          <Route
-            exact
-            path="/health"
-            element={
-              <News
-                updateProgress={updateProgress}
-                key="health"
-                pageSize={6}
-                apiKey={apiKey}
-                country="in"
-                category="health"
-              />
-            }
-          />
-          <Route
-            exact
-            path="/science"
-            element={
-              <News
-                updateProgress={updateProgress}
-                key="science"
-                pageSize={6}
-                apiKey={apiKey}
-                country="in"
-                category="science"
-              />
-            }
-          />
-          <Route
-            exact
-            path="/technology"
-            element={
-              <News
-                updateProgress={updateProgress}
-                key="technology"
-                pageSize={6}
-                apiKey={apiKey}
-                country="in"
-                category="technology"
-              />
-            }
-          />
-        </Routes> */}
+        </Routes>
       </Router>
     </div>
   )
