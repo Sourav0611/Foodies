@@ -17,14 +17,14 @@ function Header() {
         <div className='img1'></div>
         <div className='img2'></div>
         <div className='header-contents'>
-            <div className="text-overlay">
+            <div className="text1">
                 {showText ? (
                     <h2 className="btext">Hey Foodies..<br/>Are you hungry?</h2>
                 ) : (
                     <div className="gif"></div>
                 )}
             </div>
-            <div className='text-overlay'>
+            <div className='text2'>
                 <p className="loading-text">🍽️ Come Taste Some Specials! 🍲</p>
             </div>
         </div>
