@@ -1,96 +1,174 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Tint&display=swap');
 
 .navbar {
-  background: linear-gradient(135deg, #FF6347, #FFD700); /* Gradient background */
-  color: #fff; 
-  padding: 1rem 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  z-index: 3;
+  background-color: #121212;
+  color: #fff;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
 }
 
-.navbar-logo-img {
-  width: 40px; 
-  height: auto;
+.lightcolors .navbar {
+  background-color: #f8f9fa;
+}
+
+.lightcolors .navbar .nav-link,
+.lightcolors .navbar .navbar-toggler {
+  color: #121212;
+}
+
+.lightcolors .navbar-logo-text {
+  color: #121212;
 }
 
 .navbar-logo-text {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #fff;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  margin-right: 0.5rem; /* Space between logo and text */
-}
-
-.navbar-logo-text .highlight {
-  color: #FFD700; /* Gold */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Shadow to highlight */
-}
-
-.nav-link {
+  color: white;
   font-family: 'Bungee Tint', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: #fff;
-  transition: color 0.3s ease, background-color 0.3s ease;
-  padding: 0.5rem 1rem; /* clickable area */
-  border-radius: 5px; 
+  font-weight: 800;
+  font-size: 20px;
 }
 
-.nav-link:hover {
-  color: #FF6347; 
-  background-color: #FFD700; 
+.navbar-logo-img {
+  width: 50px;
+  height: 50px;
 }
 
-.cart-link {
-  background-color: #FFD700;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  color: #FF6347;
+.navbar-toggler {
+  border: none;
+  font-size: 22px;
   font-weight: bold;
-}
-
-.cart-link:hover {
-  background-color: #FF6347;
-  color: #FFD700;
-}
-
-.dot {
-  width: 8px;
-  height: 8px;
-  background-color: red;
-  border-radius: 50%;
-  position: absolute;
-  top: 0;
-  right: 0;
 }
 
 .navbar-right {
   display: flex;
   align-items: center;
-  gap: 1rem; /* Space between icons and sign-in button */
 }
 
-.navbar-right img {
-  margin-right: 1rem; /* Space between icons */
+.nav-link {
+  color: white;
+  font-weight: 500;
+  text-transform: uppercase;
 }
 
-.navbar-right button {
-  margin-left: 1rem; /* Space between sign-in button and icons */
+.nav-link:hover {
+  color: #f9ba48;
 }
 
-@media (max-width: 768px) {
-  .navbar-toggler {
-    border: none;
-    background: transparent;
-    color: #fff;
-  }
+.active {
+  color: #f9ba48;
+  font-weight: 700;
+}
 
-  .navbar-toggler-icon {
-    background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu" viewBox="0 0 24 24"%3E%3Cpath d="M3 12h18M3 6h18M3 18h18"/%3E%3C/svg%3E');
-  }
+.cart-link {
+  position: relative;
+}
 
-  .navbar-collapse {
-    margin-top: 1rem;
-  }
+.basketlogo {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}
+
+.dot {
+  position: absolute;
+  top: -4px;
+  right: -7px;
+  width: 12px;
+  height: 12px;
+  background-color: #f9ba48;
+  border-radius: 50%;
+}
+
+.dot:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background-color: #121212;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.signbutton {
+  background-color: #f9ba48;
+  border: none;
+  padding: 8px 15px;
+  color: #121212;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.signbutton:hover {
+  background-color: #f1bd00;
+}
+
+.navbar-profile {
+  position: relative;
+}
+
+.nav-profile-dropdown {
+  display: none;
+  position: absolute;
+  top: 35px;
+  right: 0;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  width: 120px;
+  z-index: 2;
+}
+
+.navbar-profile:hover .nav-profile-dropdown {
+  display: block;
+}
+
+.nav-profile-dropdown li {
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+  cursor: pointer;
+}
+
+.nav-profile-dropdown img {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+}
+
+hr {
+  margin: 5px 0;
+  border-top: 1px solid #555;
+}
+
+#visual-toggle-button {
+  cursor: pointer;
+  position: relative;
+}
+
+.lightmode {
+  background-color: #f1bd00;
+  border-radius: 5px;
+}
+
+.svgIcon-toggle {
+  width: 22px;
+  height: 22px;
+}
+
+.moon-svg {
+  transform: rotate(130deg);
+  width: 30px;
+  height: 30px;
+}
+
+#visual-toggle {
+  display: none;
 }
