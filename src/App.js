@@ -5,13 +5,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Home } from './pages/Home/Home'
 import { Cart } from './pages/Cart/Cart'
 import { PlaceOrder } from './pages/PlaceOrder/PlaceOrder';
+import Footer from './components/Footer/Footer';
+import LoginPopup from './components/LoginPopup/LoginPopup';
 
 
 const App = () => {
+
+  const [showLogin, setShowLogin] = useState(false)
   return (
+  <>
+  {showLogin? <LoginPopup/> : <></>}
     <div className='app'>
       <Router>
-        <Navbar/>
+        <Navbar setShowLogin={setShowLogin}/>
         {/* <LoadingBar color="#f11946" progress={progress} /> */}
         <Routes>
           <Route
@@ -25,6 +31,8 @@ const App = () => {
         </Routes>
       </Router>
     </div>
+    <Footer/>
+  </>
   )
 }
 
