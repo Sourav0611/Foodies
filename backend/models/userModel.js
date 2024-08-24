@@ -14,9 +14,4 @@ const addUser = async (name, email, password) => {
     );
 };
 
-// Function to update cart data
-const updateCartData = async (userId, cartData) => {
-    await pool.query('UPDATE users SET cart_data = $1 WHERE id = $2', [JSON.stringify(cartData), userId]);
-};
-
-export { getUserByEmail, addUser, updateCartData };
+export { getUserByEmail, addUser };
