@@ -1,4 +1,4 @@
-import { placeOrder, updatePaymentStatus, getOrdersByUserId, listAllOrders, updateOrderStatus } from '../models/orderModel.js';
+import { placeOrder as createOrder, updatePaymentStatus, getOrdersByUserId, listAllOrders, updateOrderStatus } from '../models/orderModel.js';
 import { getUserByEmail, updateCartData } from '../models/userModel.js';
 import Stripe from 'stripe';
 
@@ -10,7 +10,7 @@ const placeOrder = async (req, res) => {
 
     try {
         const { userId, items, amount, address } = req.body;
-        const orderId = await placeOrder(userId, items, amount, address);
+        const orderId = await createOrder(userId, items, amount, address);
         
         await updateCartData(userId, {});
 

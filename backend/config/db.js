@@ -1,7 +1,18 @@
-import { Pool } from 'pg';
+import pg from 'pg';
 import 'dotenv/config';
 
-// Create a new pool instance
+const { Client, Pool } = pg;
+
+// Create a client for single connection use cases
+const client = new Client({
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASS,
+    port: process.env.DB_PORT,
+});
+
+// Create a pool for connection pooling
 const pool = new Pool({
     user: process.env.DB_USER,
     host: process.env.DB_HOST,
@@ -13,13 +24,15 @@ const pool = new Pool({
 // Function to connect to the database
 export const connectDB = async () => {
     try {
-        // Test the connection
         await pool.query('SELECT NOW()');
         console.log('Database connected successfully');
+        await client.connect();
+        console.log('Client connected successfully');
     } catch (error) {
         console.error('Database connection error', error.stack);
     }
 };
 
-// Export the pool for querying the database
+// Export pool as the default export and client as a named export
 export default pool;
+export { client };
