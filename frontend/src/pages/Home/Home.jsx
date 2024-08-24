@@ -6,7 +6,7 @@ import FoodDisplay from '../../components/FoodDisplay/FoodDisplay';
 import AppDownload from '../../components/AppDownload/AppDownload';
 
 
-export const Home = () => {
+const Home = () => {
 
   const [category, setCategory] = useState("All");
   return (
@@ -18,3 +18,5 @@ export const Home = () => {
     </div>
   )
 }
+
+export default Home

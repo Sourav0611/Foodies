@@ -1,7 +1,7 @@
 .header {
     height: 39vw;
-    margin: 15px 20px;
-    background: url('../../assets/frontend_assets/header_img.png') no-repeat center center;
+    margin: 10vh 5vh;
+    background: url('../../assets/header_img.png') no-repeat center center;
     background-size: cover;
     position: relative;
     z-index: 0;
@@ -22,7 +22,7 @@
     left: 0;
     width: 20vw;
     height: 20vw;
-    background-image: url('../../assets/frontend_assets/bg1.gif');
+    background-image: url('../../assets/bg1.gif');
     z-index: 1;
 }
 
@@ -31,7 +31,7 @@
     right: 0;
     width: 20vw;
     height: 20vw;
-    background-image: url('../../assets/frontend_assets/bg2.gif');
+    background-image: url('../../assets/bg2.gif');
     z-index: 1;
 }
 
@@ -87,7 +87,7 @@
 .gif {
     height: 200px;
     width: 200px;
-    background-image: url('../../assets/frontend_assets/bg3.gif');
+    background-image: url('../../assets/bg3.gif');
     display: block;
     z-index: 2;
     background-position: center;

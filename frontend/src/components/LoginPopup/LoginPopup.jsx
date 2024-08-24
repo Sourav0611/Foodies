@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import './LoginPopup.css'
-import { assets } from '../../assets/frontend_assets'
+import { assets } from '../../assets/assets'
 import { StoreContext } from '../../context/StoreContext'
 import axios from "axios"
 

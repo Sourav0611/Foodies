@@ -2,10 +2,10 @@ import React from 'react';
 import './ExploreMenu.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import { Pagination, Autoplay } from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules'; // Import from 'swiper'
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
-import { menu_list } from '../../assets/frontend_assets/assets';
+import { menu_list } from '../../assets/assets'; // Ensure this path is correct
 
 const ExploreMenu = ({ category, setCategory }) => {
   return (

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
-import { food_list } from "../assets/frontend_assets/assets";
+
 export const StoreContext = createContext(null)
 
 const StoreContextProvider = (props) => {

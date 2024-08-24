@@ -1,12 +1,173 @@
-*{
-  padding: 0;
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+/* Global Styles */
+* {
   margin: 0;
-  box-sizing: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+  scroll-behavior: smooth;
 }
-body{
+
+body {
+  background-color: #f5f5f5; /* Light background color */
+  color: #333; /* Dark text color */
   min-height: 100vh;
+  line-height: 1.6;
 }
-a{
+
+a {
   text-decoration: none;
   color: inherit;
+  transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+  color: #ff5722; /* Accent color for hover effects */
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+/* Navbar Styles */
+.navbar {
+  background: linear-gradient(90deg, #ff8a00, #e52e71); /* Gradient background */
+  padding: 1rem 2rem;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar a {
+  color: #fff;
+  font-weight: 500;
+  margin-right: 1.5rem;
+}
+
+.navbar a:hover {
+  color: #ffeb3b; /* Hover color */
+}
+
+.navbar .navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.navbar .nav-item {
+  display: inline-block;
+}
+
+/* Button Styles */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  background-color: #ff5722; /* Button background color */
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background-color: #e64a19; /* Darker background on hover */
+}
+
+/* Card Styles */
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #ff5722;
+}
+
+.card p {
+  color: #666;
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.mt-2 {
+  margin-top: 1rem;
+}
+
+.mt-4 {
+  margin-top: 2rem;
+}
+
+.mb-2 {
+  margin-bottom: 1rem;
+}
+
+.mb-4 {
+  margin-bottom: 2rem;
+}
+
+.pt-2 {
+  padding-top: 1rem;
+}
+
+.pb-2 {
+  padding-bottom: 1rem;
+}
+
+.pt-4 {
+  padding-top: 2rem;
+}
+
+.pb-4 {
+  padding-bottom: 2rem;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+footer a {
+  color: #ff5722;
+}
+
+footer a:hover {
+  color: #ffeb3b;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .navbar a {
+    margin-right: 1rem;
+  }
+
+  .container {
+    width: 95%;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
 }
