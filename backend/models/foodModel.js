@@ -1,22 +1,13 @@
-import pool from '../config/db.js';
+import mongoose from "mongoose";
 
-// Function to get all food items
-const getAllFoods = async () => {
-    const result = await pool.query('SELECT * FROM foods');
-    return result.rows;
-};
+const foodSchema = new mongoose.Schema({
+    name: {type:String,required:true},
+    description: {type:String,required:true},
+    price:{type:Number,required:true},
+    image:{type:String,required:true},
+    category:{type:String,required:true}
+})
 
-// Function to add a new food item
-const addFood = async (name, description, price, category, image) => {
-    await pool.query(
-        'INSERT INTO foods (name, description, price, category, image) VALUES ($1, $2, $3, $4, $5)',
-        [name, description, price, category, image]
-    );
-};
+const foodModel = mongoose.models.food || mongoose.model("food",foodSchema)
 
-// Function to remove a food item
-const removeFood = async (id) => {
-    await pool.query('DELETE FROM foods WHERE id = $1', [id]);
-};
-
-export { getAllFoods, addFood, removeFood };
+export default foodModel;

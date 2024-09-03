@@ -1,28 +1,18 @@
-import jwt from "jsonwebtoken";
+import jwt from "jsonwebtoken"
 
-const authMiddleware = async (req, res, next) => {
-    // Check for the token in the Authorization header
-    const authHeader = req.headers['authorization'];
-    if (!authHeader) {
-        return res.status(401).json({ success: false, message: "Not Authorized. Please login again." });
+const authMiddleware = async (req,res,next) => {
+    const {token} = req.headers;
+    if (!token){
+        return res.json({success:false,message:"Not Authorized Login Again"})
     }
-
-    // Extract the token from the Authorization header
-    const token = authHeader.split(' ')[1];
-
-    if (!token) {
-        return res.status(401).json({ success: false, message: "Not Authorized. Please login again." });
-    }
-
     try {
-        // Verify the JWT token
-        const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
-        req.body.userId = decodedToken.id;
+        const token_decode = jwt.verify(token,process.env.JWT_SECRET);
+        req.body.userId = token_decode.id;
         next();
     } catch (error) {
         console.log(error);
-        res.status(401).json({ success: false, message: "Token verification failed. Please login again." });
+        res.json({success:false,message:"Error"})
     }
-};
+}
 
 export default authMiddleware;
