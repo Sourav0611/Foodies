@@ -10,12 +10,40 @@ import LoginPopup from './components/LoginPopup/LoginPopup'
 import Verify from './pages/Verify/Verify'
 import MyOrders from './pages/MyOrders/MyOrders'
 
-const App = () => {
 
+import { useEffect } from "react";
+
+function App() {
   const [showLogin,setShowLogin] = useState(false)
+  useEffect(() => {
+    // Inject the embeddedChatbotConfig script
+    const configScript = document.createElement("script");
+    configScript.innerHTML = `
+      window.embeddedChatbotConfig = {
+        chatbotId: "OkOA0ccf9iMf4RVVOOFnW",
+        domain: "www.chatbase.co"
+      };
+    `;
+    document.head.appendChild(configScript);
+
+    // Inject the Chatbase script
+    const chatbotScript = document.createElement("script");
+    chatbotScript.src = "https://www.chatbase.co/embed.min.js";
+    chatbotScript.setAttribute("chatbotId", "OkOA0ccf9iMf4RVVOOFnW");
+    chatbotScript.setAttribute("domain", "www.chatbase.co");
+    chatbotScript.defer = true;
+    document.head.appendChild(chatbotScript);
+
+    return () => {
+      document.head.removeChild(configScript);
+      document.head.removeChild(chatbotScript);
+    };
+  }, []);
 
   return (
-    <>
+    <div className="App">
+      {/* Other components */}
+      <>
     {showLogin?<LoginPopup setShowLogin={setShowLogin}/>:<></>}
     <div className='app'>
         <Navbar setShowLogin={setShowLogin}  />
@@ -29,7 +57,9 @@ const App = () => {
       </div>
       <Footer />
     </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
+

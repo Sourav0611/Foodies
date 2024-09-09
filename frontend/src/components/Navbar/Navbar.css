@@ -181,3 +181,21 @@ a {
   }
 }
 
+/* Add this to your existing CSS */
+.logout-btn {
+  background-color: #f44336; /* Red background */
+  color: #ffffff; /* White text */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 14px;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.logout-btn:hover {
+  background-color: #d32f2f; /* Darker red on hover */
+}
