@@ -1,85 +1,60 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import './Cart.css';
 import { StoreContext } from '../../context/StoreContext';
-import { useNavigate } from 'react-router-dom';
+import { assets } from '../../assets/assets'; // Ensure this imports correctly
 
 const Cart = () => {
-  const { cartItems, food_list, removeFromCart, getTotalCartAmount, url } = useContext(StoreContext);
-  const navigate = useNavigate();
+  const { cartItems, foodList, removeFromCart, getTotalCartAmount } = useContext(StoreContext);
 
-  // Debugging - Log cart items and food list
-  console.log('Cart Items:', cartItems);
-  console.log('Food List:', food_list);
+  // Scroll to the top of the page when the component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  if (Object.keys(cartItems).length === 0) {
+    return <h2>Your cart is empty</h2>;
+  }
 
   return (
-    <div className='cart'>
-      <div className="cart-items">
-        <div className="cart-items-title">
-          <p>Items</p>
-          <p>Title</p>
-          <p>Price</p>
-          <p>Quantity</p>
-          <p>Total</p>
-          <p>Remove</p>
-        </div>
-        <br />
-        <hr />
-        {food_list.length === 0 ? (
-          <p>Loading items...</p>
-        ) : (
-          food_list.map((item, index) => {
-            if (cartItems[item._id] > 0) {
-              return (
-                <div key={index}>
-                  <div className='cart-items-title cart-items-item'>
-                    <img src={`${url}/images/${item.image}`} alt={item.name} />
-                    <p>{item.name}</p>
-                    <p>${item.price}</p>
-                    <p>{cartItems[item._id]}</p>
-                    <p>${item.price * cartItems[item._id]}</p>
-                    <p onClick={() => removeFromCart(item._id)} className='cross'>x</p>
-                  </div>
-                  <hr />
-                </div>
-              )
-            }
-            return null; // Explicitly return null for items not in the cart
-          })
-        )}
+    <div className="cart">
+      <div className="cart-items-title">
+        <p>Image</p>
+        <p>Name</p>
+        <p>Quantity</p>
+        <p>Price</p>
+        <p>Total</p>
+        <p>Remove</p>
       </div>
+
+      {Object.keys(cartItems).map((itemId) => {
+        const item = foodList.find((food) => food._id === itemId);
+        if (!item) return null;
+        const totalItemPrice = item.price * cartItems[itemId];
+
+        return (
+          <div key={itemId} className="cart-items-item">
+            <img src={assets[item.image]} alt={item.name} />
+            <p>{item.name}</p>
+            <p>{cartItems[itemId]}</p>
+            <p>${item.price}</p>
+            <p>${totalItemPrice}</p>
+            <p className="cross" onClick={() => removeFromCart(itemId)}>×</p>
+          </div>
+        );
+      })}
+
       <div className="cart-bottom">
         <div className="cart-total">
-          <h2>Cart Totals</h2>
-          <div>
-            <div className="cart-total-details">
-                <p>Subtotal</p>
-                <p>${getTotalCartAmount()}</p>
-            </div>
-            <hr />
-            <div className="cart-total-details">
-                <p>Delivery Fee</p>
-                <p>${getTotalCartAmount() === 0 ? 0 : 2}</p>
-            </div>
-            <hr />
-            <div className="cart-total-details">
-                <b>Total</b>
-                <b>${getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 2}</b>
-            </div>
+          <h2>Total</h2>
+          <div className="cart-total-details">
+            <b>Total:</b>
+            <p>${getTotalCartAmount()}</p>
           </div>
-          <button onClick={() => navigate('/order')}>PROCEED TO CHECKOUT</button>
-        </div>
-        <div className="cart-promocode">
-          <div>
-            <p className='promocodep'>If you have a promo code, Enter it here</p>
-            <div className='cart-promocode-input'>
-                <input type="text" placeholder='Promo Code' />
-                <button>Submit</button>
-            </div>
-          </div>
+          <button>Proceed to Checkout</button>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Cart;
