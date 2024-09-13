@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import './FoodItem.css';
 import { assets } from '../../assets/assets'; // Import assets
 import { StoreContext } from '../../context/StoreContext';
@@ -6,7 +6,7 @@ import { StoreContext } from '../../context/StoreContext';
 function FoodItem ({ id, name, price, description, image }) {
   const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
 
-  // Dynamically get the image from assets
+
   const foodImage = assets[image];
 
   return (

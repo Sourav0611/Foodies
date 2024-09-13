@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import './LoginPopup.css';
 import { assets } from '../../assets/assets';
 import { StoreContext } from '../../context/StoreContext';
@@ -12,6 +12,14 @@ const LoginPopup = ({ setShowLogin }) => {
     email: '',
     password: '',
   });
+
+  // Disable scrolling when popup is open
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';  // Disable scroll
+    return () => {
+      document.body.style.overflow = 'auto';  // Re-enable scroll when popup closes
+    };
+  }, []);
 
   const onChangeHandler = (event) => {
     const name = event.target.name;

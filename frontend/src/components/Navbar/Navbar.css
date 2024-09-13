@@ -1,10 +1,8 @@
-
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
-  scroll-behavior: smooth;
 }
 
 body {
@@ -17,96 +15,97 @@ a {
   color: inherit;
 }
 
-/* Navbar styling */
 .navbar {
   background: linear-gradient(to right, #ff7f50, #ff4500); /* Gradient background */
-  padding: 0.5rem 1rem; /* Adjusted padding for better mobile view */
+  padding: 0.5rem 1rem;
   position: relative;
   width: 100%;
-  height: auto; /* Adjusted height */
+  height: 56px; /* Fixed height */
 }
 
-.navbar .container {
+.navbar .container-fluid {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap; /* Ensure elements wrap on small screens */
 }
 
 .navbar-logo-text {
   color: white;
   font-family: 'Bungee Tint', sans-serif;
   font-weight: 800;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .navbar-nav {
   display: flex;
   align-items: center;
-  flex-wrap: wrap; /* Wrap items on smaller screens */
 }
 
 .navbar-nav .nav-link {
   color: #ffffff;
   margin-right: 10px;
-  font-size: 1rem; /* Adjusted size for better fit */
+  font-size: 1rem;
   transition: color 0.3s ease;
 }
 
 .navbar-nav .nav-link:hover {
-  color: #000000; /* Change text color to black on hover */
-}
-
-.navbar-toggler {
-  background-color: #ffffff;
-  border: none;
-}
-
-.navbar-toggler-icon {
-  background-image: url('data:image/svg+xml;charset=UTF8,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 30 30%27%3e%3cpath stroke=%27rgba%28255, 255, 255, 1%27 stroke-width=%272%27 stroke-linecap=%27round%27 stroke-miterlimit=%2710%27 d=%27M4 7h22M4 15h22M4 23h22%27/%3e%3c/svg%3e');
-}
-
-/* Sign in button styling */
-.signbutton {
-  background-color: #8b60c4;
-  color: #000000;
-  font-weight: bolder;
-  padding: 10px 25px; /* Adjusted padding for mobile view */
-  border: 2px solid #ff4500;
-  border-radius: 20px;
-  font-size: 14px; /* Adjusted size for mobile view */
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  position: absolute;
-  right: 10px; /* Adjusted position for mobile view */
-  top: 15px;
-}
-
-.signbutton:hover {
-  background-color: #ff4500;
   color: #000000;
 }
 
-/* Navbar icons styling */
+/* Aligning the right section of the navbar */
 .navbar-right {
-  width: 25px; /* Adjusted size for mobile view */
-  height: 25px;
   display: flex;
-  align-items: center;
-  gap: 40px;
+  gap: 10px;
+  margin-left: auto;
 }
 
-.navbar-profile img {
-  width: 20px; 
+.navbar-icon {
+  width: 20px;
   height: 20px;
 }
 
+.basketlogo {
+  position: relative;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.signbutton {
+  background-color: #8b60c4;
+  color: white;
+  font-weight: bold;
+  padding: 6px 15px;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.navbar-profile {
+  position: relative;
+}
+
 .nav-profile-dropdown {
-  list-style: none;
-  background-color: #ffffff;
+  display: none;
+  position: absolute;
+  top: 35px;
+  right: 0;
+  background-color: white;
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-profile:hover .nav-profile-dropdown {
+  display: block;
 }
 
 .nav-profile-dropdown li {
@@ -116,89 +115,33 @@ a {
   cursor: pointer;
 }
 
-
 .nav-profile-dropdown li:hover {
-  background-color: #000000;
+  background-color: #f0f0f0;
 }
 
 .nav-profile-dropdown img {
   margin-right: 10px;
   width: 20px;
   height: 20px;
-  color: #000000;
-  background-color: #000000;
 }
-.nav-profile-dropdown {
-  display: none;
-  top: 35px;
-  right: 0;
-  background-color: #3b0404;
-  color: rgb(0, 0, 0);
-  padding: 10px;
-  font-weight: bolder;
-  border-radius: 5px;
-  width: 120px;
-  z-index: 2;
-}
-.navbar-logo-img{
-  height: 75px;
-  width: 75px;
-}
+
 /* Responsive styling */
-@media (min-width: 768px) {
-  .navbar {
-    height: 12vh;
-  }
-}
 @media (max-width: 768px) {
-
-  .navbar {
-    height: auto;
-
-  }
-  .navbar-logo-img{
-    height: 25px;
-    width: 25px;
-  }
   .navbar-logo-text {
-    color: white;
-    font-family: 'Bungee Tint', sans-serif;
-    font-weight: 800;
-    font-size: 25px;
-    margin-bottom: auto;
+    font-size: 20px;
   }
+
   .navbar-nav {
     flex-direction: column;
     width: 100%;
   }
 
-  .navbar-nav .nav-link {
-    margin: 10px 0; /* Adjust margin for vertical stacking */
+  .navbar-right {
+    margin-top: 10px;
+    justify-content: center;
   }
 
   .signbutton {
-    position: static; /* Remove absolute positioning for mobile view */
-    margin-top: 10px; /* Adjust margin for better placement */
-    width: 100%; /* Full width on mobile */
-    text-align: center; /* Center text */
+    width: 100%;
   }
-}
-
-/* Add this to your existing CSS */
-.logout-btn {
-  background-color: #f44336; /* Red background */
-  color: #ffffff; /* White text */
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
-  font-size: 14px;
-  display: block;
-  width: 100%;
-  text-align: center;
-}
-
-.logout-btn:hover {
-  background-color: #d32f2f; /* Darker red on hover */
 }

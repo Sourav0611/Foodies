@@ -1,40 +1,19 @@
-.login-popup{
-    position: absolute;
-    z-index: 1;
+.login-popup {
+    position: fixed; /* Make sure it's fixed so it stays in place */
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background-color: #00000090;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black for overlay */
     display: grid;
+    z-index: 1000; /* Ensure it's above other content */
 }
 
-:root .login-popup-title{
-    color: white;
-}
-
-.lightcolors .login-popup-title{
-    color: black;
-}
-
-
-:root .login-popup-container {
-    background-color: var(--body-color);
-}
-
-.lightcolors .login-popup-container {
-    background-color: white; 
-}
-
-.continuee{
-    position: relative;
-    top: 4px;
-}
-
-
-.login-popup-container{
+.login-popup-container {
     place-self: center;
     width: max(23vw, 330px);
-    color: #808080;
-    background-color: white;
+    color: black;
+    background-color: white; /* Set background to white */
     display: flex;
     flex-direction: column;
     gap: 25px;
@@ -43,28 +22,34 @@
     font-size: 14px;
     animation: fadeIn 0.5s;
 }
-.login-popup-title{
+
+.login-popup-title {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: black;   
+    color: black; /* Set title color to black */
 }
-.login-popup-title img{
+
+.login-popup-title img {
     width: 16px;
     cursor: pointer;
 }
-.login-popup-inputs{
+
+.login-popup-inputs {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-.login-popup-inputs input{
+
+.login-popup-inputs input {
     outline: none;
     border: 1px solid #c9c9c9;
     padding: 10px;
     border-radius: 4px;
+    color: black; /* Ensure input text is black */
 }
-.login-popup-container button{
+
+.login-popup-container button {
     border: none;
     padding: 10px;
     border-radius: 4px;
@@ -73,21 +58,25 @@
     font-size: 15px;
     cursor: pointer;
 }
-.login-popup-condition{
+
+.login-popup-condition {
     display: flex;
     align-items: start;
     gap: 8px;
     margin-top: -15px;
 }
-.login-popup-condition input{
+
+.login-popup-condition input {
     margin-top: 5px;
 }
-.login-popup p span{
+
+.login-popup p span {
     color: tomato;
     font-weight: 500;
     cursor: pointer;
 }
-/* Add this to your existing CSS */
+
+/* Logout Button Styles */
 .logout-btn {
     background-color: #f44336; /* Red background */
     color: #ffffff; /* White text */
@@ -100,9 +89,8 @@
     display: block;
     width: 100%;
     text-align: center;
-  }
-  
-  .logout-btn:hover {
+}
+
+.logout-btn:hover {
     background-color: #d32f2f; /* Darker red on hover */
-  }
-  
+}

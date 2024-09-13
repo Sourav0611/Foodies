@@ -86,17 +86,17 @@
 
 :root .food-item-counter,
 :root .food-item-info{
-    background-color: rgb(36, 32, 32);
+    background-color: rgb(36, 34, 32);
 }
 .lightcolors .food-item-counter,
 .lightcolors .food-item-info{
-    background-color: #FFFFFF;
+    background-color: #ffffff;
 }
 
 :root .food-item-img-container .add{
-    background-color: black
+    background-color: rgb(247, 190, 137)
 }
 
 .lightcolors .food-item-img-container .add{
-    background-color: white;
+    background-color: rgb(255, 255, 255);
 }

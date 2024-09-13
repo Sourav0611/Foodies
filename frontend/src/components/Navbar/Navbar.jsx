@@ -5,7 +5,7 @@ import './Navbar.css';
 import { assets } from '../../assets/assets';
 
 const Navbar = ({ setShowLogin }) => {
-  const [menu, setMenu] = useState("home");
+  const [menu, setMenu] = useState("menu");
   const [isNavOpen, setIsNavOpen] = useState(false);
   const { getTotalCartAmount, token, setToken } = useContext(StoreContext);
   const navigate = useNavigate();
@@ -46,25 +46,25 @@ const Navbar = ({ setShowLogin }) => {
             <li className="nav-item">
               <a href='#footer' onClick={() => setMenu("contact-us")} className={`nav-link ${menu === "contact-us" ? "active" : ""}`}>Contact Us</a>
             </li>
-            <li className="nav-item">
-              <Link to="/cart" className="nav-link cart-link">Cart</Link>
-            </li>
           </ul>
-          <div className="navbar-right">
-            <img src={assets.search_icon} alt="" />
-            <div className="navbar-search-icon">
-              <Link to='/cart'><img className='basketlogo' src={assets.basket_icon} alt="Cart" /></Link>
-              <div className={getTotalCartAmount() === 0 ? "" : "dot"}></div>
-            </div>
-            {!token ? <button className='signbutton' onClick={() => setShowLogin(true)}>Sign in</button>
-              : <div className='navbar-profile'>
+          <div className="navbar-right d-flex align-items-center">
+            <img src={assets.search_icon} alt="Search Icon" className="navbar-icon" />
+            <Link to='/cart' className="position-relative">
+              <img className='basketlogo navbar-icon' src={assets.basket_icon} alt="Cart" />
+              {getTotalCartAmount() !== 0 && <div className="dot"></div>}
+            </Link>
+            {!token ? (
+              <button className='signbutton' onClick={() => setShowLogin(true)}>Sign in</button>
+            ) : (
+              <div className='navbar-profile'>
                 <img src={assets.profile_icon} className='white-filter' alt="Profile" />
                 <ul className="nav-profile-dropdown">
                   <li onClick={() => navigate('/myorders')}><img src={assets.bag_icon} alt="Orders" /><p>Orders</p></li>
                   <hr />
                   <li onClick={logout}><img src={assets.logout_icon} alt="Logout" /><p>Logout</p></li>
                 </ul>
-              </div>}
+              </div>
+            )}
           </div>
         </div>
       </div>
