@@ -183,3 +183,8 @@ a{
     padding: 1.5rem;
   }
 }
+
+.app{
+  width: 90%;
+  margin:auto;
+}
