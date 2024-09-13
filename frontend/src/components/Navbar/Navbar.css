@@ -88,9 +88,12 @@ a {
 }
 
 /* Navbar icons styling */
-.navbar-right .basketlogo {
+.navbar-right {
   width: 25px; /* Adjusted size for mobile view */
   height: 25px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
 }
 
 .navbar-profile img {
