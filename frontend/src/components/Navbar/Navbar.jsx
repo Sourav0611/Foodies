@@ -5,7 +5,7 @@ import './Navbar.css';
 import { assets } from '../../assets/assets';
 
 const Navbar = ({ setShowLogin }) => {
-  const [menu, setMenu] = useState("menu");
+  const [menu, setMenu] = useState("home");
   const [isNavOpen, setIsNavOpen] = useState(false);
   const { getTotalCartAmount, token, setToken } = useContext(StoreContext);
   const navigate = useNavigate();
