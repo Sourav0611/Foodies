@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from 'react';
 import './Cart.css';
 import { StoreContext } from '../../context/StoreContext';
-import { assets } from '../../assets/assets'; // Ensure this imports correctly
+import { assets } from '../../assets/assets'; 
 import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
-  const { cartItems, foodList, removeFromCart, getTotalCartAmount } = useContext(StoreContext);
+  const { cartItems, foodList, removeFromCart, getTotalCartAmount, token } = useContext(StoreContext);
 
   const navigate = useNavigate();
 
@@ -13,6 +13,18 @@ const Cart = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // Only proceed if token exists and there are items in the cart
+  const handleProceedToCheckout = () => {
+    if (!token) {
+      alert("Please log in before proceeding.");
+      navigate("/login");
+    } else if (Object.keys(cartItems).length === 0) {
+      alert("Your cart is empty. Add items before proceeding.");
+    } else {
+      navigate("/order");
+    }
+  };
 
   if (Object.keys(cartItems).length === 0) {
     return <h2>Your cart is empty</h2>;
@@ -53,7 +65,7 @@ const Cart = () => {
             <b>Total:</b>
             <p>${getTotalCartAmount()}</p>
           </div>
-          <button onClick={()=> navigate('/order')}>Proceed to Checkout</button>
+          <button onClick={handleProceedToCheckout}>Proceed to Checkout</button>
         </div>
       </div>
     </div>
