@@ -2,9 +2,12 @@ import React, { useContext, useEffect } from 'react';
 import './Cart.css';
 import { StoreContext } from '../../context/StoreContext';
 import { assets } from '../../assets/assets'; // Ensure this imports correctly
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
   const { cartItems, foodList, removeFromCart, getTotalCartAmount } = useContext(StoreContext);
+
+  const navigate = useNavigate();
 
   // Scroll to the top of the page when the component mounts
   useEffect(() => {
@@ -50,7 +53,7 @@ const Cart = () => {
             <b>Total:</b>
             <p>${getTotalCartAmount()}</p>
           </div>
-          <button>Proceed to Checkout</button>
+          <button onClick={()=> navigate('/order')}>Proceed to Checkout</button>
         </div>
       </div>
     </div>
