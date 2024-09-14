@@ -1,36 +1,74 @@
-.sidebar{
+/* Sidebar container styling */
+.sidebar {
     width: 18%;
     min-height: 100vh;
-    border: 1.5px solid #a9a9a9;
-    border-top: 0;
-    font-size: max(1vw, 10px);
-}
-.sidebar-options{
-    padding-top: 50px;
-    padding-left: 20%;
+    background: linear-gradient(135deg, #ff7f50, #ff4500); /* Gradient background */
+    padding: 20px 0;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-right: 1px solid #dcdcdc;
+  }
+  
+  /* Sidebar options container */
+  .sidebar-options {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-}
-.sidebar-option{
+    gap: 25px;
+    padding-left: 15%;
+  }
+  
+  /* Sidebar option styling */
+  .sidebar-option {
     display: flex;
     align-items: center;
-    gap: 12px;
-    border: 1px solid #a9a9a9;
-    border-right: 0;
-    padding: 8px 10px;
-    border-radius: 3px 0px 0px 3px;
+    gap: 15px;
+    padding: 10px 15px;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
     cursor: pointer;
-}
-
-.sidebar-option.active{
-    background-color: var(--sidebar);
-    border-color: tomato;
-}
-
-
-@media (max-width:900px) {
-    .sidebar-option p{
-        display: none;
-    }    
-}
+  }
+  
+  .sidebar-option:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+  }
+  
+  /* Active link styling */
+  .sidebar-option.active {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-left: 4px solid tomato;
+  }
+  
+  /* Icon styling */
+  .icon {
+    width: 24px;
+    height: auto;
+  }
+  
+  /* Media query for responsiveness */
+  @media (max-width: 900px) {
+    .sidebar {
+      width: 70px;
+    }
+  
+    .sidebar-options {
+      padding-left: 10%;
+    }
+  
+    .sidebar-option p {
+      display: none;
+    }
+  
+    .icon {
+      width: 30px;
+    }
+  }
+  
