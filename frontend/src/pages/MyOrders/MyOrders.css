@@ -52,7 +52,7 @@
 
 :root .my-orders-order p b,
 :root .my-orders-order{
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .lightcolors .my-orders-order p b,
@@ -62,7 +62,8 @@
 
 
 :root .myordersp {
-    color: white; 
+    margin-top: 15vh;
+    color: rgb(0, 0, 0); 
 }
 
 .lightcolors .myordersp {
