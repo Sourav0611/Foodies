@@ -35,21 +35,21 @@
 }
 
 :root .emaill {
-    background-color: black;
+    background-color: rgb(255, 255, 255);
 }
 :root .emaill{
     color: white;
 }
 
 :root .streett {
-    background-color: black;
+    background-color: rgb(255, 255, 255);
 }
 :root .streett{
     color: white;
 }
 
 :root .phonee {
-    background-color: black;
+    background-color: rgb(255, 255, 255);
 }
 :root .phonee{
     color: white;
@@ -67,40 +67,40 @@
     background-color: white;
 }
 .lightcolors .streett{
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 .lightcolors .phonee {
     background-color: white;
 }
 .lightcolors .phonee{
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 
 :root .multi-fields input {
-    background-color: black;
-    color: white; 
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0); 
 }
 
 :root .multi-fields input::placeholder {
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 
 .lightcolors .multi-fields input {
-    background-color: white;
-    color: black;
+    background-color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
 }
 .lightcolors .multi-fields input::placeholder {
-    color: black;
+    color: rgb(0, 0, 0);
 }
 
 
 :root .title {
-    color: white;
+    color: rgb(94, 94, 94);
 }
 
 .lightcolors .title {
-    color: black;
+    color: #c5c5c5;
 }
