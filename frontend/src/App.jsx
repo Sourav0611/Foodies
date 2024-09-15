@@ -15,6 +15,7 @@ import { useEffect } from "react";
 
 function App() {
   const [showLogin,setShowLogin] = useState(false)
+  
   useEffect(() => {
     // Inject the embeddedChatbotConfig script
     const configScript = document.createElement("script");
